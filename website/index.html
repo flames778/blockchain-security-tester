@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Security Tester</title>
+    <meta name="description" content="A complete, hands-on security lab for Solidity smart contracts. Scan for vulnerabilities, deploy, exploit, and apply fixes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    
+    <header class="glass-header">
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🔒</span>
+                <span class="logo-text">BlockSecLab</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#vulnerabilities">Vulnerabilities</a>
+                <a href="#start" class="btn btn-primary btn-sm">Quick Start</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <div class="badge">v1.0.0 Live</div>
+                <h1 class="hero-title">Master <span class="text-gradient">Smart Contract</span> Security</h1>
+                <p class="hero-subtitle">A complete, hands-on security lab for Solidity smart contracts. Scan for vulnerabilities, deploy vulnerable contracts, exploit them, and apply fixes in a safe, local environment.</p>
+                <div class="hero-cta">
+                    <a href="#start" class="btn btn-primary btn-lg">Start Hacking</a>
+                    <a href="https://github.com/yourusername/blockchain-security-tester" target="_blank" class="btn btn-secondary btn-lg">View GitHub</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window glass-card">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="window-title">scanner.py</div>
+                    </div>
+                    <pre class="code-content"><code><span class="code-comment"># Scanning contracts/VulnerableBank.sol...</span>
+<span class="code-keyword">import</span> slither
+
+<span class="code-function">scan_contract</span>(<span class="code-string">"VulnerableBank.sol"</span>)
+<span class="code-output">🔍 VULNERABILITY REPORT:</span>
+<span class="code-error">[REENTRANCY]</span> – 1 issue(s)
+  ⚠️ Line 15: msg.sender.call{value: _amount}("");
+<span class="code-error">[OVERFLOW]</span> – 1 issue(s)
+  ⚠️ Line 22: balances[msg.sender] += msg.value;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title">Lab Capabilities</h2>
+            <div class="feature-grid">
+                <div class="feature-card glass-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Smart Contract Scanner</h3>
+                    <p class="feature-desc">Detects reentrancy, arithmetic overflow/underflow, and missing access control using static analysis and custom regex patterns.</p>
+                </div>
+                <div class="feature-card glass-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">💣</div>
+                    <h3 class="feature-title">Exploit Scripts</h3>
+                    <p class="feature-desc">Ready-to-run Python scripts that interact with deployed contracts to execute attacks on a local Anvil testnet.</p>
+                </div>
+                <div class="feature-card glass-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Fixed Contracts</h3>
+                    <p class="feature-desc">Learn how to apply industry-standard mitigations like <code>ReentrancyGuard</code>, <code>Ownable</code>, and Solidity 0.8+ safe math.</p>
+                </div>
+                <div class="feature-card glass-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="feature-icon">🧪</div>
+                    <h3 class="feature-title">Safe Test Environment</h3>
+                    <p class="feature-desc">Everything runs locally using Foundry's Anvil node. Zero risk of real funds being lost or mainnet consequences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vulnerabilities" class="vulnerabilities container">
+            <h2 class="section-title text-center">Vulnerabilities Covered</h2>
+            <div class="vuln-list">
+                <div class="vuln-item glass-card slide-up">
+                    <div class="vuln-header">
+                        <h3>Reentrancy <span>(SWC-107)</span></h3>
+                    </div>
+                    <p>External call before state update leads to recursive withdrawal. Mitigated by using <code>ReentrancyGuard</code> and the checks-effects-interactions pattern.</p>
+                </div>
+                <div class="vuln-item glass-card slide-up" style="animation-delay: 0.1s;">
+                    <div class="vuln-header">
+                        <h3>Arithmetic Overflow <span>(SWC-101)</span></h3>
+                    </div>
+                    <p>Unsafe addition/subtraction in Solidity <0.8.0. Mitigated by using Solidity 0.8+ built-in checks or OpenZeppelin's SafeMath.</p>
+                </div>
+                <div class="vuln-item glass-card slide-up" style="animation-delay: 0.2s;">
+                    <div class="vuln-header">
+                        <h3>Access Control <span>(SWC-105)</span></h3>
+                    </div>
+                    <p>Public function transfers value without owner check. Mitigated by utilizing the <code>onlyOwner</code> modifier from OpenZeppelin.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="start" class="quick-start container">
+            <div class="quick-start-box glass-card">
+                <h2 class="section-title">Quick Start</h2>
+                <p>Get up and running in your Ubuntu/Kali environment in seconds.</p>
+                <div class="terminal">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="window-title">bash</div>
+                    </div>
+                    <pre><code>git clone https://github.com/yourusername/blockchain-security-tester.git
+cd blockchain-security-tester
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+source venv/bin/activate</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Blockchain Security Tester. Open source under the MIT License.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
