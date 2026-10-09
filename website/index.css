@@ -324,6 +324,68 @@ body {
     font-size: 0.95rem;
 }
 
+/* Architecture Section */
+.architecture {
+    padding: 4rem 2rem 6rem;
+    scroll-margin-top: 5rem;
+}
+
+.architecture-intro {
+    max-width: 680px;
+    margin: -1.5rem auto 2.5rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.architecture-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.architecture-step {
+    min-height: 180px;
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
+    border-top: 3px solid var(--accent-3);
+    background: rgba(21, 33, 56, 0.45);
+}
+
+.architecture-step:nth-child(2) { border-top-color: var(--accent-1); }
+.architecture-step:nth-child(3) { border-top-color: var(--accent-error); }
+.architecture-step:nth-child(4) { border-top-color: var(--accent-2); }
+
+.architecture-kicker {
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.architecture-step h3 {
+    margin: 0.75rem 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.architecture-step p,
+.architecture-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.architecture-step code {
+    color: var(--accent-1);
+    font-family: var(--font-mono);
+    overflow-wrap: anywhere;
+}
+
+.architecture-note {
+    margin: 1.5rem 0 0;
+    text-align: center;
+}
+
 /* Vulnerabilities Section */
 .vulnerabilities {
     padding: 6rem 2rem;

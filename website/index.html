@@ -89,6 +89,34 @@
             </div>
         </section>
 
+        <section id="architecture" class="architecture container">
+            <h2 class="section-title">How the Lab Fits Together</h2>
+            <p class="architecture-intro">Follow a contract from static analysis through a local attack, then compare it with the secured version.</p>
+            <ol class="architecture-flow">
+                <li class="architecture-step">
+                    <span class="architecture-kicker">01 / Source</span>
+                    <h3>Scan the contract</h3>
+                    <p><code>scanner_simple.py</code> checks Solidity source for common issues; <code>scanner.py</code> can add Slither analysis.</p>
+                </li>
+                <li class="architecture-step">
+                    <span class="architecture-kicker">02 / Local chain</span>
+                    <h3>Deploy to Anvil</h3>
+                    <p>The deployment script sends <code>VulnerableBank.sol</code> to Foundry's local test network.</p>
+                </li>
+                <li class="architecture-step">
+                    <span class="architecture-kicker">03 / Test</span>
+                    <h3>Run the exploits</h3>
+                    <p>Python exploit scripts connect to the local contract and demonstrate its vulnerabilities.</p>
+                </li>
+                <li class="architecture-step">
+                    <span class="architecture-kicker">04 / Compare</span>
+                    <h3>Verify the fixes</h3>
+                    <p>Deploy <code>SecureBank.sol</code> and compare its protections against the same attack scenarios.</p>
+                </li>
+            </ol>
+            <p class="architecture-note">All contract activity stays on the local Anvil network. No mainnet funds are used.</p>
+        </section>
+
         <section id="vulnerabilities" class="vulnerabilities container">
             <h2 class="section-title text-center">Vulnerabilities Covered</h2>
             <div class="vuln-list">
